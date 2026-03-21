@@ -7,7 +7,7 @@
 // ── CONFIGURATION ───────────────────────────────────────────────
 // Replace these values with your actual details before going live.
 const OPERION = {
-  BASE_URL: 'https://hadfield83.app.n8n.cloud',   // Your n8n domain
+  BASE_URL: 'https://serenityaisys.app.n8n.cloud/home/workflows',   // Your n8n domain
   SECRET:   'ASH2025',      // Matches admin_config.netlify_webhook_secret
 
   // ── API ENDPOINTS (v2.0) ─────────────────────────────────────
