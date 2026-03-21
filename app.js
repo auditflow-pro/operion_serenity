@@ -8,7 +8,7 @@
 // Replace these values with your actual details before going live.
 const OPERION = {
   BASE_URL: 'https://app.autohive.com/w-kjzv5/hooks/aabd6082-2fa4-46f9-bee4-a482a058e794',   // Your n8n domain
-  SECRET:   'Operion-2026',      // Matches admin_config.netlify_webhook_secret
+  
 
   // ── API ENDPOINTS (v2.0) ─────────────────────────────────────
   PATHS: {
