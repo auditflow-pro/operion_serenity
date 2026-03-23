@@ -1,298 +1,369 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Operion Systems Ltd</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Crimson+Pro:wght@300;400;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<meta name="description" content="Operion automates customer enquiry handling using structured AI workflows.">
 
 <style>
 
-:root{
---ink:#0E0F11;
---paper:#F4F1EA;
---rule:#D4CEBC;
---accent:#C8371A;
---accent2:#1A4DC8;
---text:#2A2B2E;
---muted:#7A7670;
-}
-
-*{box-sizing:border-box;margin:0;padding:0;}
-
 body{
-background:var(--paper);
-color:var(--text);
-font-family:'Crimson Pro',serif;
-line-height:1.6;
+margin:0;
+font-family:Inter,Arial;
+background:#071326;
+color:white;
 }
 
-.wrapper{
-max-width:1100px;
-margin:auto;
-padding:0 20px;
-}
-
-.header{
-border-bottom:3px solid var(--ink);
-padding:24px;
+header{
 display:flex;
 justify-content:space-between;
 align-items:center;
+padding:18px 8%;
+border-bottom:1px solid #0B1F3B;
+background:#071326;
+position:sticky;
+top:0;
 }
 
-.brand{
-font-family:'Bebas Neue';
-font-size:38px;
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
 }
 
-.brand span{color:var(--accent);}
+.logo svg{
+width:36px;
+}
+
+.logo span{
+font-size:11px;
+color:#B0C4D4;
+}
 
 nav a{
-margin-left:18px;
+margin-left:20px;
+color:white;
 text-decoration:none;
-font-family:'DM Mono';
-font-size:12px;
-color:var(--muted);
+font-size:14px;
 }
 
 .hero{
-background:var(--ink);
-color:var(--paper);
-padding:90px 20px;
+text-align:center;
+padding:150px 20px;
+background:radial-gradient(circle,#0B1F3B,#071326);
 }
 
 .hero h1{
-font-family:'Bebas Neue';
-font-size:clamp(44px,8vw,80px);
-line-height:.95;
+font-size:54px;
 }
 
 .hero p{
-margin-top:20px;
+max-width:700px;
+margin:auto;
 font-size:20px;
-max-width:620px;
-opacity:.75;
-font-style:italic;
+color:#B0C4D4;
 }
 
-.cta{
+.button{
 display:inline-block;
 margin-top:30px;
-padding:14px 28px;
-background:var(--accent2);
-color:white;
+padding:16px 30px;
+background:#2F80ED;
+border-radius:6px;
 text-decoration:none;
-font-family:'DM Mono';
-font-size:12px;
+color:white;
+font-weight:bold;
 }
 
 .section{
-padding:70px 0;
-border-bottom:1px solid var(--rule);
-}
-
-.section h2{
-font-family:'Bebas Neue';
-font-size:46px;
-margin-bottom:20px;
+padding:100px 10%;
+text-align:center;
 }
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:18px;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
 }
 
 .card{
-background:var(--ink);
-color:var(--paper);
-padding:18px;
-font-size:14px;
-}
-
-.flow{
-display:flex;
-flex-wrap:wrap;
-gap:8px;
-margin-top:20px;
-}
-
-.flow div{
-background:var(--ink);
-color:var(--paper);
-padding:10px 14px;
-font-family:'DM Mono';
-font-size:11px;
+background:#0B1F3B;
+padding:40px;
+border-radius:10px;
 }
 
 .pricing{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:18px;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
 }
 
 .price-card{
-border:1px solid var(--rule);
-padding:18px;
+background:#0B1F3B;
+padding:40px;
+border-radius:10px;
+}
+
+.highlight{
+border:2px solid #2F80ED;
 }
 
 .price{
-font-size:30px;
-font-family:'Bebas Neue';
+font-size:42px;
+margin:15px 0;
 }
 
 form{
+max-width:500px;
+margin:auto;
 display:flex;
 flex-direction:column;
-gap:12px;
-max-width:520px;
+gap:15px;
 }
 
 input,textarea{
 padding:12px;
-border:1px solid var(--rule);
-font-size:14px;
+border-radius:6px;
+border:none;
 }
 
-button{
-cursor:pointer;
+.dashboard{
+display:none;
+padding:40px;
 }
 
-.footer{
-background:var(--ink);
-color:var(--paper);
-padding:40px 20px;
+.dashboard-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:20px;
+}
+
+.widget{
+background:#0B1F3B;
+padding:25px;
+border-radius:10px;
+}
+
+footer{
+padding:50px;
 text-align:center;
-font-family:'DM Mono';
-font-size:11px;
+color:#B0C4D4;
+border-top:1px solid #0B1F3B;
 }
 
 </style>
+
 </head>
 
 <body>
 
-<div class="header">
-  <div class="brand">OPER<span>ION</span></div>
-  <nav>
-    <a href="#features">Features</a>
-    <a href="#workflow">Workflow</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#demo">Demo</a>
-  </nav>
+<header>
+
+<div class="logo">
+
+<svg viewBox="0 0 100 100">
+<circle cx="50" cy="50" r="40" stroke="#2F80ED" stroke-width="6" fill="none"/>
+<circle cx="50" cy="50" r="6" fill="#2F80ED"/>
+</svg>
+
+<div>
+OPERION<br>
+<span>SYSTEMS LTD</span>
 </div>
 
-<div class="hero">
-  <div class="wrapper">
-    <h1>Operational Automation of Customer Enquiries</h1>
-    <p>
-    Operion automatically qualifies leads, generates pricing and proposals, and ensures every enquiry receives a professional response instantly.
-    </p>
-    <a href="#demo" class="cta">Request Demonstration</a>
-  </div>
 </div>
 
-<div class="section" id="features">
-  <div class="wrapper">
-    <h2>Platform Functions</h2>
-    <div class="grid">
-      <div class="card">Automated enquiry classification</div>
-      <div class="card">Structured response generation</div>
-      <div class="card">Workflow routing</div>
-      <div class="card">Operational insight</div>
-    </div>
-  </div>
+<nav>
+
+<a href="#features">Features</a>
+<a href="#pricing">Pricing</a>
+<a href="#demo">Demo</a>
+<a href="#contact">Contact</a>
+<a href="#dashboard">Dashboard</a>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1>Customer Enquiry Automation</h1>
+
+<p>
+Operion automatically qualifies leads, generates pricing and proposals, and ensures every enquiry receives a professional response instantly.
+</p>
+
+<a class="button" href="#demo">Request Demonstration</a>
+
+</section>
+
+<section id="features" class="section">
+
+<h2>Platform Capabilities</h2>
+
+<div class="grid">
+
+<div class="card">Automated enquiry classification</div>
+<div class="card">Structured response generation</div>
+<div class="card">Workflow routing</div>
+<div class="card">Operational insight</div>
+
 </div>
 
-<div class="section" id="workflow">
-  <div class="wrapper">
-    <h2>Operational Workflow</h2>
-    <div class="flow">
-      <div>Enquiry</div>
-      <div>Validation</div>
-      <div>Queue</div>
-      <div>Classification</div>
-      <div>AI Response</div>
-      <div>Dispatch</div>
-    </div>
-  </div>
+</section>
+
+<section id="pricing" class="section">
+
+<h2>Pricing</h2>
+
+<div class="pricing">
+
+<div class="price-card">
+
+<h3>Starter</h3>
+<div class="price">£199</div>
+<p>Up to 750 enquiries</p>
+
 </div>
 
-<div class="section" id="pricing">
-  <div class="wrapper">
-    <h2>Pricing</h2>
-    <div class="pricing">
+<div class="price-card highlight">
 
-      <div class="price-card">
-        <h3>Starter</h3>
-        <div class="price">£199</div>
-        <p>Up to 750 enquiries</p>
-      </div>
+<h3>Professional</h3>
+<div class="price">£499</div>
+<p>Up to 4000 enquiries</p>
 
-      <div class="price-card">
-        <h3>Professional</h3>
-        <div class="price">£499</div>
-        <p>Up to 4000 enquiries</p>
-      </div>
-
-      <div class="price-card">
-        <h3>Business</h3>
-        <div class="price">£999</div>
-        <p>Up to 12000 enquiries</p>
-      </div>
-
-      <div class="price-card">
-        <h3>Enterprise</h3>
-        <div class="price">Custom</div>
-        <p>operionautomation@gmail.com</p>
-      </div>
-
-    </div>
-  </div>
 </div>
 
-<!-- DEMO SECTION (FIXED) -->
+<div class="price-card">
 
-<div class="section" id="demo">
-  <div class="wrapper">
+<h3>Business</h3>
+<div class="price">£999</div>
+<p>Up to 12000 enquiries</p>
 
-    <h2>Request Demonstration</h2>
-
-    <p style="max-width:600px;margin-bottom:20px;color:var(--muted);font-style:italic;">
-    Submit a sample enquiry. Operion will process it and respond, demonstrating how customer enquiries are handled automatically.
-    </p>
-
-    <form 
-      name="operion-demo"
-      method="POST"
-      action="https://ohperion.app.n8n.cloud/webhook/operion/demo"
-      data-netlify="true"
-    >
-
-      <input type="hidden" name="form-name" value="operion-demo">
-
-      <!-- REQUIRED SECURITY -->
-      <input type="hidden" name="operion_secret" value="REPLACE_WITH_YOUR_SECRET">
-
-      <input name="name" placeholder="Your Name" required>
-      <input name="email" placeholder="Your Email" required>
-
-      <textarea name="enquiry" placeholder="Enter a sample customer enquiry..." required></textarea>
-
-      <button class="cta">Submit Enquiry</button>
-
-    </form>
-
-  </div>
 </div>
 
-<div class="footer">
-Operion Systems Ltd — AI-powered enquiry automation<br>
-Privacy Policy · Terms of Service · AI Disclosure
+<div class="price-card">
+
+<h3>Enterprise</h3>
+<div class="price">Custom</div>
+<p>operionautomation@gmail.com</p>
+
 </div>
+
+</div>
+
+</section>
+
+<!-- FIXED DEMO SECTION -->
+
+<section id="demo" class="section">
+
+<h2>Request Demonstration</h2>
+
+<p style="max-width:600px;margin:auto;margin-bottom:25px;color:#B0C4D4;">
+Submit a sample enquiry. Operion will process it and respond, demonstrating how customer enquiries are handled automatically.
+</p>
+
+<form 
+name="operion-demo" 
+method="POST" 
+action="https://ohperion.app.n8n.cloud/webhook/operion/demo" 
+data-netlify="true"
+>
+
+<input type="hidden" name="form-name" value="operion-demo">
+
+<input type="hidden" name="operion_secret" value="REPLACE_WITH_YOUR_SECRET">
+
+<input name="name" placeholder="Name" required>
+<input name="email" placeholder="Email" required>
+<textarea name="enquiry" placeholder="Example Customer Enquiry"></textarea>
+
+<button class="button">Submit</button>
+
+</form>
+
+</section>
+
+<section id="dashboard" class="section">
+
+<h2>Customer Dashboard</h2>
+
+<p>Access your Operion operational dashboard.</p>
+
+<a class="button" onclick="showDashboard()">Open Dashboard</a>
+
+</section>
+
+<div id="dashboardUI" class="dashboard">
+
+<h2>Business Overview</h2>
+
+<div class="dashboard-grid">
+
+<div class="widget">
+<h3>Enquiries Processed</h3>
+<p>—</p>
+</div>
+
+<div class="widget">
+<h3>Responses Generated</h3>
+<p>—</p>
+</div>
+
+<div class="widget">
+<h3>Automation Status</h3>
+<p>Active</p>
+</div>
+
+<div class="widget">
+<h3>Alerts</h3>
+<p>No alerts</p>
+</div>
+
+</div>
+
+</div>
+
+<section id="contact" class="section">
+
+<h2>Contact</h2>
+
+<form name="contact" method="POST" data-netlify="true">
+
+<input type="hidden" name="form-name" value="contact">
+
+<input name="name" placeholder="Name">
+<input name="email" placeholder="Email">
+
+<textarea name="message" placeholder="Message"></textarea>
+
+<button class="button">Send</button>
+
+</form>
+
+</section>
+
+<footer>
+
+Operion Systems Ltd<br>
+AI-powered enquiry automation
+
+</footer>
+
+<script>
+
+function showDashboard(){
+document.getElementById("dashboardUI").style.display="block";
+window.scrollTo(0,document.getElementById("dashboardUI").offsetTop);
+}
+
+</script>
 
 </body>
 </html>
