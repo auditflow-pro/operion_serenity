@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     try {
-      const res = await fetch("https://nonrhymed-elmer-chrysocarpous.ngrok-free.dev/webhook/operion/dem-request", {
+      const res = await fetch("https://nonrhymed-elmer-chrysocarpous.ngrok-free.dev/webhook/operion/demo-request", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
